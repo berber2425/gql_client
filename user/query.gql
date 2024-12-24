@@ -1,0 +1,9 @@
+query GetHome {
+  user {
+    home {
+      upcoming_bookings {
+        id
+      }
+    }
+  }
+}

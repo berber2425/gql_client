@@ -1,0 +1,65 @@
+# import * from "../fragments.gql"
+
+query MyMemberships {
+  org {
+    my_memberships {
+      pageInfo {
+        ...PageInfo
+      }
+      items {
+        ...TempMembership
+      }
+    }
+  }
+}
+
+query GetMember($id: ID!) {
+  org {
+    us {
+      members(pagination: { filter: { id: $id } }) {
+        items {
+          ...Member
+        }
+        pageInfo {
+          ...PageInfo
+        }
+      }
+    }
+  }
+}
+
+query GetMembers($pagination: PaginationInput) {
+  org {
+    us {
+      members(pagination: $pagination) {
+        items {
+          ...Member
+        }
+        pageInfo {
+          ...PageInfo
+        }
+      }
+    }
+  }
+}
+
+query GetOrg {
+  org {
+    us {
+      ...MeOrganization
+    }
+  }
+}
+
+query GetAllOrganizations($pagination: PaginationInput) {
+  org {
+    my_memberships(pagination: $pagination) {
+      items {
+        ...TempMembership
+      }
+      pageInfo {
+        ...PageInfo
+      }
+    }
+  }
+}

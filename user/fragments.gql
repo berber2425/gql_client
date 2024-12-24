@@ -1,0 +1,5 @@
+fragment PublicUser on User {
+  id
+  name
+  avatar
+}

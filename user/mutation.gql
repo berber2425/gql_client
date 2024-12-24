@@ -1,0 +1,5 @@
+mutation Test($id: ID!) {
+  user {
+    add_favorite(id: $id)
+  }
+}

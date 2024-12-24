@@ -1,0 +1,36 @@
+fragment TempMembership on TempMembership {
+  id
+  status
+  role {
+    id
+    name
+  }
+  branch {
+    id
+    name
+  }
+  organization {
+    id
+    name
+    avatar
+  }
+}
+
+fragment MeOrganization on Organization {
+  id
+  name
+  avatar
+}
+
+fragment Member on Member {
+  id
+  status
+  user {
+    ...PublicUser
+  }
+  user_ID
+  role {
+    name
+  }
+  branch_ID
+}
